@@ -1,8 +1,9 @@
 ---
+const base = import.meta.env.BASE_URL;
 ---
 <header class="nav-shell" role="banner">
   <nav class="wrap nav-inner" aria-label="Main navigation">
-    <a href="/" class="wordmark" aria-label="Meridian home">
+    <a href={base} class="wordmark" aria-label="Meridian home">
       <span class="wordmark-dot" aria-hidden="true"></span>
       MERIDIAN
     </a>
@@ -12,7 +13,7 @@
       <li><a href="#customers">Customers</a></li>
     </ul>
 
-    <a href="/signup" class="nav-cta">Start for free</a>
+    <a href={`${base}signup`} class="nav-cta">Start for free</a>
 
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span>
@@ -23,7 +24,7 @@
     <ul role="list">
       <li><a href="#product">Product</a></li>
       <li><a href="#customers">Customers</a></li>
-      <li><a href="/signup" class="mobile-cta">Start for free</a></li>
+      <li><a href={`${base}signup`} class="mobile-cta">Start for free</a></li>
     </ul>
   </div>
 </header>

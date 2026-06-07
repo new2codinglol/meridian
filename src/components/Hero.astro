@@ -1,5 +1,6 @@
 ---
 import NetworkGraph3D from './NetworkGraph3D.tsx'
+const base = import.meta.env.BASE_URL;
 ---
 <section class="hero" aria-labelledby="hero-heading">
   <div class="wrap hero-inner">
@@ -14,7 +15,7 @@ import NetworkGraph3D from './NetworkGraph3D.tsx'
         relationship intelligence that used to take years to earn.
       </p>
       <div class="hero-ctas reveal reveal-d3">
-        <a href="/signup" class="btn-primary">Start for free</a>
+        <a href={`${base}signup`} class="btn-primary">Start for free</a>
         <a href="#product" class="btn-ghost">
           See how it works
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 ---
 <section class="closing" aria-labelledby="closing-heading">
   <div class="wrap closing-inner">
@@ -17,7 +18,7 @@
         Start free. No setup fees. Connect your email in five minutes.
       </p>
       <div class="closing-ctas" id="get-started">
-        <a href="/signup" class="btn-cta">Start for free</a>
+        <a href={`${base}signup`} class="btn-cta">Start for free</a>
         <a href="#" class="btn-link">Talk to the team</a>
       </div>
       <p class="closing-trust">Encrypted at rest · SOC 2 Type II · No data sharing</p>
@@ -26,7 +27,7 @@
 
   <footer class="page-footer" role="contentinfo">
     <div class="wrap footer-inner">
-      <a href="/" class="footer-wordmark" aria-label="Meridian home">
+      <a href={base} class="footer-wordmark" aria-label="Meridian home">
         <span class="wordmark-dot" aria-hidden="true"></span>
         MERIDIAN
       </a>
