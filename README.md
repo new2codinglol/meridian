@@ -27,6 +27,11 @@ npm run preview  # serve the build locally
 
 Two routes: `/` (landing) and `/signup`.
 
+## Live Deploy on Github Pages
+https://new2codinglol.github.io/meridian/
+
 ## Notes
 
 All firms, people, quotes, and metrics are fictional. This is a portfolio piece, not a shipping product.
+
+
