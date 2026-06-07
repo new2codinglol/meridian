@@ -1,0 +1,105 @@
+---
+import '../styles/global.css';
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Meridian: Client Relationship Management',
+  description = "Meridian gives professional services firms the relationship intelligence they need, without the complexity they've always resented.",
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600&family=Red+Hat+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <slot />
+
+    <div id="page-transition" class="page-transition" aria-hidden="true">
+      <span class="pt-mark">
+        <span class="pt-dot"></span>
+        MERIDIAN
+      </span>
+    </div>
+
+    <script>
+      const overlay = document.getElementById('page-transition');
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      document.querySelectorAll<HTMLAnchorElement>('a[href="/signup"]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          // Let modified clicks (new tab, etc.) behave normally
+          if (reduced || !overlay || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+          e.preventDefault();
+          const href = link.getAttribute('href') ?? '/signup';
+
+          let navigated = false;
+          const go = () => {
+            if (navigated) return;
+            navigated = true;
+            window.location.href = href;
+          };
+
+          overlay.classList.add('is-active');
+          overlay.addEventListener('animationend', (ev) => {
+            if ((ev as AnimationEvent).animationName === 'pt-rise') go();
+          });
+          // Fallback in case animationend doesn't fire
+          window.setTimeout(go, 700);
+        });
+      });
+    </script>
+
+    <script>
+      // Progressive enhancement: content is visible by default (CSS only hides
+      // `.reveal` under `html.js`). Reveal-on-scroll is the enhancement, and it
+      // self-heals: if IntersectionObserver is missing or throws, show everything.
+      const reveals = document.querySelectorAll('.reveal');
+      const showAll = () => reveals.forEach((el) => el.classList.add('is-visible'));
+      if (!('IntersectionObserver' in window)) {
+        showAll();
+      } else {
+        try {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12 }
+          );
+          reveals.forEach((el) => observer.observe(el));
+        } catch {
+          showAll();
+        }
+      }
+    </script>
+
+    <!-- Easter egg for the curious (this is a craft-demo; recruiters/devs welcome). -->
+    <script is:inline>
+      console.log(
+        '%cMeridian%c  a front-end craft demo\n%cAstro + React islands + react-three-fiber. Poke around: github.com',
+        'font:800 22px/1.2 "Barlow Condensed",system-ui;color:#e89a3c',
+        'font:600 12px system-ui;color:#9a9384',
+        'font:12px ui-monospace,monospace;color:#7c766a'
+      );
+    </script>
+  </body>
+</html>

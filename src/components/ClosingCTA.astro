@@ -1,0 +1,254 @@
+---
+---
+<section class="closing" aria-labelledby="closing-heading">
+  <div class="wrap closing-inner">
+    <div class="closing-text reveal">
+      <h2 id="closing-heading" class="closing-heading">
+        <span class="reveal-word" style="--word-i:0">Client</span>
+        <span class="reveal-word" style="--word-i:1">intelligence</span>
+        <span class="reveal-word" style="--word-i:2">for</span>
+        <span class="reveal-word" style="--word-i:3">firms</span>
+        <span class="reveal-word" style="--word-i:4">that</span>
+        <span class="reveal-word" style="--word-i:5">think</span>
+        <span class="reveal-word" style="--word-i:6">in</span>
+        <span class="reveal-word" style="--word-i:7">decades.</span>
+      </h2>
+      <p class="closing-sub">
+        Start free. No setup fees. Connect your email in five minutes.
+      </p>
+      <div class="closing-ctas" id="get-started">
+        <a href="/signup" class="btn-cta">Start for free</a>
+        <a href="#" class="btn-link">Talk to the team</a>
+      </div>
+      <p class="closing-trust">Encrypted at rest · SOC 2 Type II · No data sharing</p>
+    </div>
+  </div>
+
+  <footer class="page-footer" role="contentinfo">
+    <div class="wrap footer-inner">
+      <a href="/" class="footer-wordmark" aria-label="Meridian home">
+        <span class="wordmark-dot" aria-hidden="true"></span>
+        MERIDIAN
+      </a>
+      <p class="footer-copy">
+        &copy; 2026 Meridian. A personal front-end practice project.
+      </p>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</section>
+
+<style>
+.closing {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-top: var(--sp-24);
+  background: oklch(13.5% 0.007 66);
+  border-top: 1px solid var(--c-border);
+}
+
+/* Flowing amber glow: two soft blobs drift + breathe on offset timings.
+   Animated via transform/opacity only (the gradient itself never repaints). */
+.closing::before,
+.closing::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.closing::before {
+  background: radial-gradient(62% 56% at 50% 8%, oklch(46% 0.125 60 / 0.85) 0%, transparent 72%);
+  animation: closing-glow-a 10s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+.closing::after {
+  background: radial-gradient(52% 46% at 62% 2%, oklch(52% 0.145 56 / 0.7) 0%, transparent 68%);
+  mix-blend-mode: screen;
+  animation: closing-glow-b 13s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+@keyframes closing-glow-a {
+  from { transform: translate3d(-11%, -4%, 0) scale(1) rotate(-5deg); }
+  to   { transform: translate3d(11%, 5%, 0) scale(1.22) rotate(5deg); }
+}
+@keyframes closing-glow-b {
+  from { transform: translate3d(13%, 4%, 0) scale(1.12) rotate(6deg); opacity: 0.5; }
+  to   { transform: translate3d(-13%, -3%, 0) scale(0.85) rotate(-7deg); opacity: 1; }
+}
+
+.closing-inner {
+  position: relative;
+  z-index: 1;
+  padding-bottom: var(--sp-32);
+}
+
+.closing-text {
+  max-width: 640px;
+}
+
+.closing-heading {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--c-text);
+  margin-bottom: var(--sp-6);
+}
+
+/* Word-by-word reveal — triggered when parent .closing-text gets .is-visible.
+   Gated under html.js so the heading is fully visible without JS. */
+.reveal-word { display: inline-block; }
+
+:global(html.js) .reveal-word {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 400ms var(--ease-out) calc(var(--word-i) * 55ms),
+    transform 400ms var(--ease-out) calc(var(--word-i) * 55ms);
+}
+
+:global(html.js) .closing-text.is-visible .reveal-word {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(html.js) .reveal-word {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .closing::before,
+  .closing::after {
+    animation: none;
+  }
+}
+
+.closing-sub {
+  font-size: var(--t-small);
+  color: var(--c-text-mid);
+  margin-bottom: var(--sp-8);
+  max-width: 44ch;
+}
+
+.closing-ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  flex-wrap: wrap;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 2rem;
+  background: var(--c-accent);
+  color: var(--c-on-accent);
+  font-family: var(--f-body);
+  font-weight: 500;
+  font-size: var(--t-body);
+  border-radius: var(--r-sm);
+  transition:
+    background var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+}
+.btn-cta:hover {
+  background: var(--c-accent-deep);
+  transform: translateY(-1px);
+}
+.btn-cta:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+.btn-link {
+  font-size: var(--t-small);
+  color: var(--c-text-mid);
+  text-decoration: underline;
+  text-decoration-color: var(--c-border);
+  text-underline-offset: 3px;
+  transition: color var(--dur-base) var(--ease-out), text-decoration-color var(--dur-base) var(--ease-out);
+}
+.btn-link:hover {
+  color: var(--c-text);
+  text-decoration-color: var(--c-text-mid);
+}
+
+.closing-trust {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  color: var(--c-text-muted);
+  letter-spacing: 0.04em;
+  margin-top: var(--sp-4);
+}
+
+/* Footer */
+.page-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--c-border);
+  padding-block: var(--sp-8);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  flex-wrap: wrap;
+}
+
+.footer-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--c-text-mid);
+  flex-shrink: 0;
+}
+
+.wordmark-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  flex-shrink: 0;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: var(--c-text-muted);
+  flex: 1;
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--sp-6);
+}
+
+.footer-links a {
+  font-size: 0.78rem;
+  color: var(--c-text-muted);
+  transition: color var(--dur-base) var(--ease-out);
+}
+.footer-links a:hover { color: var(--c-text-mid); }
+.footer-links a:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (max-width: 680px) {
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
+  .footer-copy { order: 3; }
+}
+</style>

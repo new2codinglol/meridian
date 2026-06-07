@@ -1,0 +1,1309 @@
+---
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Create your Meridian account." />
+    <title>Create account: Meridian</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600&family=Red+Hat+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="shell">
+
+      <!-- Left: form panel -->
+      <div class="form-panel">
+        <a href="/" class="wordmark" aria-label="Meridian home">
+          <span class="wm-dot" aria-hidden="true"></span>
+          MERIDIAN
+        </a>
+
+        <main class="form-body" id="main-content">
+          <header class="form-header">
+            <h1 class="form-heading">Create an account</h1>
+            <p class="form-sub">
+              Already have an account?
+              <a href="#" class="inline-link">Sign in</a>
+            </p>
+          </header>
+
+          <form class="signup-form" novalidate>
+            <div class="field">
+              <label for="sg-name">
+                Your full name
+                <span class="req" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text" id="sg-name" name="name"
+                autocomplete="name" spellcheck="false"
+                required aria-required="true" aria-describedby="err-name" maxlength="80"
+              />
+              <p class="field-error" id="err-name" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="sg-firm">
+                Firm name
+                <span class="req" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text" id="sg-firm" name="firm"
+                autocomplete="organization" spellcheck="false"
+                required aria-required="true" aria-describedby="err-firm" maxlength="100"
+              />
+              <p class="field-error" id="err-firm" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="sg-email">
+                Work email
+                <span class="req" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="email" id="sg-email" name="email"
+                autocomplete="email" spellcheck="false"
+                required aria-required="true" aria-describedby="err-email" maxlength="254"
+              />
+              <p class="field-error" id="err-email" hidden></p>
+            </div>
+
+            <div class="field">
+              <div class="label-row">
+                <label for="sg-password">
+                  Password
+                  <span class="req" aria-hidden="true">*</span>
+                </label>
+                <span class="field-hint" id="pw-hint">At least 9 characters</span>
+              </div>
+              <input
+                type="password"
+                id="sg-password"
+                name="password"
+                autocomplete="new-password"
+                aria-describedby="pw-hint err-password"
+                required aria-required="true"
+                minlength="9"
+              />
+              <p class="field-error" id="err-password" hidden></p>
+            </div>
+
+            <div class="field">
+              <div class="field-check">
+                <input
+                  type="checkbox" id="sg-terms" name="terms"
+                  required aria-required="true" aria-describedby="err-terms"
+                />
+                <label for="sg-terms">
+                  I agree to the
+                  <a href="#" class="inline-link">Service Agreement</a>
+                  and
+                  <a href="#" class="inline-link">Terms of Use</a>
+                </label>
+              </div>
+              <p class="field-error" id="err-terms" hidden></p>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-create" id="submit-btn">
+                <span class="btn-spinner" aria-hidden="true"></span>
+                <span class="btn-label">Create account</span>
+              </button>
+              <a href="#" class="btn-secondary">Book a call</a>
+            </div>
+          </form>
+
+          <div class="signup-success" id="signup-success" role="status" hidden>
+            <span class="success-mark" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M4 12.5l5 5L20 6.5" stroke="currentColor" stroke-width="2.4"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <h2 class="success-heading">You're in.</h2>
+            <p class="success-msg">
+              We sent a confirmation link to <strong id="success-email">your inbox</strong>.
+              Open it to verify your address and finish setting up
+              <span id="success-firm">your firm</span> on Meridian.
+            </p>
+            <div class="success-actions">
+              <a href="/" class="btn-create">Back to home</a>
+              <button type="button" class="btn-secondary" id="resend-btn">Resend email</button>
+            </div>
+            <p class="success-note" id="resend-note">Didn't get it? Check spam, or resend the link.</p>
+          </div>
+        </main>
+
+        <footer class="form-foot">
+          <p class="foot-copy">&copy; 2026 Meridian</p>
+          <nav aria-label="Legal links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+          </nav>
+        </footer>
+      </div>
+
+      <!-- Right: product preview -->
+      <div class="visual-panel" aria-hidden="true">
+        <div class="preview-frame">
+
+          <p class="preview-kicker">This is what you're signing up for</p>
+
+          <!-- Faux product window -->
+          <div class="app-window">
+            <div class="aw-bar">
+              <div class="aw-dots"><span></span><span></span><span></span></div>
+              <span class="aw-url">app.meridian.co / accounts / suria-advisory</span>
+            </div>
+
+            <div class="aw-scroll">
+              <div class="aw-head">
+                <div>
+                  <p class="aw-title">Suria Advisory</p>
+                  <p class="aw-sub">Account overview · 23 connections across your firm</p>
+                </div>
+                <span class="aw-pill">Live</span>
+              </div>
+
+              <!-- Section: relationship map -->
+              <section class="aw-section">
+                <p class="aw-section-title">Relationship map</p>
+                <div class="aw-graph">
+                  <span class="band-label band-label--top">Suria Advisory</span>
+                  <span class="band-label band-label--bot">Your firm</span>
+
+                  <!-- connectors: client stakeholder → your colleague -->
+                  <svg class="aw-lines" viewBox="0 0 320 210" preserveAspectRatio="none" aria-hidden="true">
+                    <!-- base ties -->
+                    <line class="ln"           x1="58"  y1="54" x2="58"  y2="156" pathLength="100" />
+                    <line class="ln"           x1="262" y1="54" x2="160" y2="156" pathLength="100" />
+                    <line class="ln ln-weak"   x1="160" y1="54" x2="262" y2="156" pathLength="100" />
+                    <line class="ln ln-strong" x1="160" y1="54" x2="58"  y2="156" pathLength="100" />
+                    <!-- traveling signal pulses (mirror the hero 3D graph's edges) -->
+                    <line class="ln-pulse"                  x1="58"  y1="54" x2="58"  y2="156" pathLength="100" style="--delay:0s" />
+                    <line class="ln-pulse"                  x1="262" y1="54" x2="160" y2="156" pathLength="100" style="--delay:-0.85s" />
+                    <line class="ln-pulse"                  x1="160" y1="54" x2="262" y2="156" pathLength="100" style="--delay:-1.7s" />
+                    <line class="ln-pulse ln-pulse--strong" x1="160" y1="54" x2="58"  y2="156" pathLength="100" style="--delay:-2.55s" />
+                  </svg>
+
+                  <!-- client stakeholders (top) -->
+                  <div class="person" style="--x:18%; --y:30%">
+                    <div class="node">RA</div>
+                    <p class="p-name">Rizal Ahmad</p>
+                  </div>
+                  <div class="person" style="--x:50%; --y:30%">
+                    <div class="node node--warm">CW</div>
+                    <p class="p-name">Claire Wong</p>
+                  </div>
+                  <div class="person" style="--x:82%; --y:30%">
+                    <div class="node">ML</div>
+                    <p class="p-name">Marcus Lim</p>
+                  </div>
+
+                  <!-- your firm (bottom) -->
+                  <div class="person person--rev" style="--x:18%; --y:70%">
+                    <div class="node node--mine">DL</div>
+                    <p class="p-name">Darren Loh</p>
+                  </div>
+                  <div class="person person--rev" style="--x:50%; --y:70%">
+                    <div class="node node--mine">ST</div>
+                    <p class="p-name">Sarah Tan</p>
+                  </div>
+                  <div class="person person--rev" style="--x:82%; --y:70%">
+                    <div class="node node--mine">MR</div>
+                    <p class="p-name">Mei Rahman</p>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Section: key stakeholders -->
+              <section class="aw-section">
+                <p class="aw-section-title">Key stakeholders</p>
+                <ul class="stk-list" role="list">
+                  <li class="stk-row">
+                    <div class="stk-id">
+                      <span class="stk-av">RA</span>
+                      <div>
+                        <p class="stk-name">Rizal Ahmad</p>
+                        <p class="stk-role">Chief Executive Officer</p>
+                      </div>
+                    </div>
+                    <div class="stk-meta">
+                      <span class="bars" data-level="3"><i></i><i></i><i></i></span>
+                      <span class="stk-last">2d ago</span>
+                    </div>
+                  </li>
+                  <li class="stk-row">
+                    <div class="stk-id">
+                      <span class="stk-av stk-av--warm">CW</span>
+                      <div>
+                        <p class="stk-name">Claire Wong</p>
+                        <p class="stk-role">Chief Financial Officer</p>
+                      </div>
+                    </div>
+                    <div class="stk-meta">
+                      <span class="bars" data-level="1"><i></i><i></i><i></i></span>
+                      <span class="stk-last">5w ago</span>
+                    </div>
+                  </li>
+                  <li class="stk-row">
+                    <div class="stk-id">
+                      <span class="stk-av">ML</span>
+                      <div>
+                        <p class="stk-name">Marcus Lim</p>
+                        <p class="stk-role">Chief Operating Officer</p>
+                      </div>
+                    </div>
+                    <div class="stk-meta">
+                      <span class="bars" data-level="2"><i></i><i></i><i></i></span>
+                      <span class="stk-last">1w ago</span>
+                    </div>
+                  </li>
+                  <li class="stk-row">
+                    <div class="stk-id">
+                      <span class="stk-av">PT</span>
+                      <div>
+                        <p class="stk-name">Priya Tan</p>
+                        <p class="stk-role">VP, Corporate Development</p>
+                      </div>
+                    </div>
+                    <div class="stk-meta">
+                      <span class="bars" data-level="2"><i></i><i></i><i></i></span>
+                      <span class="stk-last">3w ago</span>
+                    </div>
+                  </li>
+                </ul>
+              </section>
+
+              <!-- Section: recent activity -->
+              <section class="aw-section">
+                <p class="aw-section-title">Recent activity</p>
+                <ul class="act-list" role="list">
+                  <li class="act-row">
+                    <span class="act-dot act-dot--on"></span>
+                    <div>
+                      <p class="act-event">Quarterly business review</p>
+                      <p class="act-when">Nov 12 · Darren Loh, Sarah Tan</p>
+                    </div>
+                  </li>
+                  <li class="act-row">
+                    <span class="act-dot"></span>
+                    <div>
+                      <p class="act-event">Contract renewal signed</p>
+                      <p class="act-when">Oct 28 · Darren Loh</p>
+                    </div>
+                  </li>
+                  <li class="act-row">
+                    <span class="act-dot"></span>
+                    <div>
+                      <p class="act-event">Intro to new CFO, Claire Wong</p>
+                      <p class="act-when">Oct 15 · via Marcus Lim</p>
+                    </div>
+                  </li>
+                  <li class="act-row">
+                    <span class="act-dot"></span>
+                    <div>
+                      <p class="act-event">Scope expansion proposal sent</p>
+                      <p class="act-when">Sep 30 · Mei Rahman</p>
+                    </div>
+                  </li>
+                </ul>
+              </section>
+            </div>
+
+            <!-- pinned status bar -->
+            <div class="aw-foot">
+              <span class="aw-tag">Warmest path</span>
+              <span class="aw-path">You → Claire Wong via Darren Loh</span>
+            </div>
+          </div>
+
+          <p class="preview-caption">
+            Map every relationship inside an account before you walk in.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      const form = document.querySelector('.signup-form');
+      const successPanel = document.getElementById('signup-success');
+      const header = document.querySelector('.form-header');
+      const submitBtn = document.getElementById('submit-btn');
+
+      if (form && submitBtn && successPanel) {
+        const btnLabel = submitBtn.querySelector('.btn-label');
+        const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Each field: a validator returning an error string, or '' when valid.
+        const validators = {
+          'sg-name': (v) =>
+            v.trim().length < 2 ? 'Enter your full name.' : '',
+          'sg-firm': (v) =>
+            v.trim() === '' ? "Enter your firm's name." : '',
+          'sg-email': (v) =>
+            v.trim() === '' ? 'Enter your work email.'
+            : !EMAIL_RE.test(v.trim()) ? 'Enter a valid email address.' : '',
+          'sg-password': (v) =>
+            v === '' ? 'Create a password.'
+            : v.length < 9 ? 'Use at least 9 characters.' : '',
+          'sg-terms': (checked) =>
+            checked ? '' : 'Accept the agreement to continue.',
+        };
+
+        const errEl = (id) => document.getElementById('err-' + id.replace('sg-', ''));
+        const valueOf = (input) => (input.type === 'checkbox' ? input.checked : input.value);
+
+        function setError(input, msg) {
+          const el = errEl(input.id);
+          if (msg) {
+            input.setAttribute('aria-invalid', 'true');
+            if (el) { el.textContent = msg; el.hidden = false; }
+          } else {
+            input.removeAttribute('aria-invalid');
+            if (el) { el.textContent = ''; el.hidden = true; }
+          }
+          return !msg;
+        }
+
+        function validate(input) {
+          const fn = validators[input.id];
+          return fn ? setError(input, fn(valueOf(input))) : true;
+        }
+
+        const inputs = Object.keys(validators)
+          .map((id) => document.getElementById(id))
+          .filter(Boolean);
+
+        inputs.forEach((input) => {
+          const blurEv = input.type === 'checkbox' ? 'change' : 'blur';
+          input.addEventListener(blurEv, () => validate(input));
+          // Once flagged, clear the error the moment the field becomes valid again.
+          const liveEv = input.type === 'checkbox' ? 'change' : 'input';
+          input.addEventListener(liveEv, () => {
+            if (input.getAttribute('aria-invalid') === 'true') validate(input);
+          });
+        });
+
+        let submitting = false;
+
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (submitting) return;
+
+          let firstInvalid = null;
+          inputs.forEach((input) => {
+            if (!validate(input) && !firstInvalid) firstInvalid = input;
+          });
+          if (firstInvalid) { firstInvalid.focus(); return; }
+
+          submitting = true;
+          submitBtn.dataset.loading = '';
+          submitBtn.disabled = true;
+          submitBtn.setAttribute('aria-busy', 'true');
+          if (btnLabel) btnLabel.textContent = 'Creating account…';
+
+          const email = document.getElementById('sg-email').value.trim();
+          const firm = document.getElementById('sg-firm').value.trim();
+
+          // Simulated request: no backend in this demo.
+          window.setTimeout(() => {
+            const emailOut = document.getElementById('success-email');
+            const firmOut = document.getElementById('success-firm');
+            if (emailOut) emailOut.textContent = email;
+            if (firmOut) firmOut.textContent = firm || 'your firm';
+
+            form.hidden = true;
+            if (header) header.hidden = true;
+            successPanel.hidden = false;
+            successPanel.querySelector('.success-actions .btn-create')?.focus();
+          }, 1400);
+        });
+
+        // Resend affordance on the success panel.
+        const resendBtn = document.getElementById('resend-btn');
+        const resendNote = document.getElementById('resend-note');
+        let resendTimer;
+        resendBtn?.addEventListener('click', () => {
+          resendBtn.disabled = true;
+          const original = resendBtn.textContent;
+          resendBtn.textContent = 'Sending…';
+          window.clearTimeout(resendTimer);
+          resendTimer = window.setTimeout(() => {
+            resendBtn.textContent = original;
+            resendBtn.disabled = false;
+            if (resendNote) {
+              resendNote.textContent = 'Sent again. Give it a minute to arrive.';
+              resendNote.dataset.sent = '';
+            }
+          }, 1100);
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+/* ─── Tokens ─────────────────────────────────────────────────── */
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-base: 280ms;
+
+  /* Dark form panel — warm-aligned to match the landing palette */
+  --fp-bg:     oklch(13.5% 0.006 70);
+  --fp-surf:   oklch(18%  0.008 70);
+  --fp-border: oklch(28%  0.009 72);
+  --fp-text:   oklch(93%  0.014 84);
+  --fp-mid:    oklch(67%  0.012 80);
+  --fp-muted:  oklch(51%  0.009 78);
+
+  /* Accent */
+  --accent:      oklch(72% 0.155 62);
+  --accent-deep: oklch(63% 0.15 60);
+
+  /* Error — warm red, pulled toward the amber hue so it belongs to the palette */
+  --fp-error:      oklch(67% 0.17 32);
+  --fp-error-soft: oklch(67% 0.17 32 / 0.18);
+
+  /* Type */
+  --f-display: 'Barlow Condensed', system-ui, sans-serif;
+  --f-body:    'Hanken Grotesk', system-ui, sans-serif;
+  --f-mono:    'Red Hat Mono', ui-monospace, monospace;
+}
+
+/* ─── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--f-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  background: var(--fp-bg);
+  color: var(--fp-text);
+}
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+
+/* ─── Shell ──────────────────────────────────────────────────── */
+.shell {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  min-height: 100vh;
+}
+
+/* ─── Arrival animation (after the curtain transition) ───────── */
+@keyframes sg-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ─── Form panel ─────────────────────────────────────────────── */
+.form-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 3rem;
+  animation: sg-rise 0.55s var(--ease-out) 0.06s both;
+}
+
+/* Wordmark */
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  color: var(--fp-mid);
+  transition: color var(--dur-base) var(--ease-out);
+}
+.wordmark:hover { color: var(--fp-text); }
+.wm-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Form body: vertically centered in the remaining space */
+.form-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 3rem;
+  max-width: 360px;
+}
+
+.form-header { margin-bottom: 2rem; }
+
+.form-heading {
+  font-family: var(--f-body);
+  font-weight: 400;
+  font-size: 1.875rem;
+  letter-spacing: -0.015em;
+  color: var(--fp-text);
+  margin-bottom: 0.5rem;
+}
+
+.form-sub {
+  font-size: 0.875rem;
+  color: var(--fp-muted);
+}
+
+.inline-link {
+  color: var(--fp-mid);
+  text-decoration: underline;
+  text-decoration-color: var(--fp-border);
+  text-underline-offset: 2px;
+  transition:
+    color var(--dur-base) var(--ease-out),
+    text-decoration-color var(--dur-base) var(--ease-out);
+}
+.inline-link:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+/* Fields */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.signup-form[hidden] { display: none; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--fp-mid);
+  letter-spacing: 0.01em;
+}
+
+.label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.field-hint {
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  color: var(--fp-muted);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  height: 44px;
+  padding: 0 0.875rem;
+  background: oklch(20.5% 0.009 70);
+  border: 1px solid oklch(37% 0.011 72);
+  border-radius: 8px;
+  color: var(--fp-text);
+  font-family: var(--f-body);
+  font-size: 0.9375rem;
+  outline: none;
+  caret-color: var(--accent);
+  transition:
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px oklch(64% 0.15 55 / 0.2);
+}
+
+/* Invalid state */
+input[aria-invalid="true"] {
+  border-color: var(--fp-error);
+}
+input[aria-invalid="true"]:focus {
+  border-color: var(--fp-error);
+  box-shadow: 0 0 0 3px var(--fp-error-soft);
+}
+
+/* Required marker */
+.req {
+  color: var(--accent);
+  font-weight: 600;
+  margin-inline-start: 1px;
+}
+
+/* Field-level error message */
+.field-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--fp-error);
+}
+.field-error[hidden] { display: none; }
+.field-error::before {
+  content: '';
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background:
+    var(--fp-error)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='%23150f0c' stroke-width='3.5' stroke-linecap='round'%3E%3Cpath d='M12 7v6M12 17h.01'/%3E%3C/svg%3E")
+    center / 13px no-repeat;
+}
+
+/* Custom checkbox */
+.field-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.field-check input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  margin-top: 2px;
+  background: oklch(20.5% 0.009 70);
+  border: 1px solid oklch(37% 0.011 72);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition:
+    background var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+}
+.field-check input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.field-check input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 4px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid var(--fp-bg);
+  border-top: none;
+  border-left: none;
+  transform: rotate(40deg);
+}
+.field-check input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.field-check label {
+  font-size: 0.8125rem;
+  color: var(--fp-muted);
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-create {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 1.625rem;
+  background: var(--fp-text);
+  color: var(--fp-bg);
+  font-family: var(--f-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition:
+    background var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out),
+    opacity var(--dur-base) var(--ease-out);
+}
+.btn-create:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+.btn-create:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.btn-create[data-loading] {
+  cursor: progress;
+  background: var(--accent);
+  transform: none;
+}
+.btn-create:disabled {
+  cursor: not-allowed;
+}
+
+/* Submit spinner — only present while loading */
+.btn-spinner {
+  display: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid oklch(20% 0.01 70 / 0.35);
+  border-top-color: var(--fp-bg);
+  animation: btn-spin 0.7s linear infinite;
+}
+.btn-create[data-loading] .btn-spinner { display: block; }
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+.btn-secondary {
+  height: 44px;
+  padding: 0 1.375rem;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--f-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--fp-mid);
+  border: 1px solid var(--fp-border);
+  border-radius: 100px;
+  transition:
+    color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+}
+.btn-secondary:hover {
+  color: var(--fp-text);
+  border-color: oklch(45% 0.008 55);
+}
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ─── Success confirmation ───────────────────────────────────── */
+.signup-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: sg-rise 0.5s var(--ease-out) both;
+}
+.signup-success[hidden] { display: none; }
+
+.success-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  color: var(--accent);
+  background: oklch(72% 0.155 62 / 0.14);
+  border: 1px solid oklch(72% 0.155 62 / 0.35);
+  margin-bottom: 1.5rem;
+}
+
+.success-heading {
+  font-family: var(--f-body);
+  font-weight: 400;
+  font-size: 1.875rem;
+  letter-spacing: -0.015em;
+  color: var(--fp-text);
+  margin-bottom: 0.625rem;
+}
+
+.success-msg {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--fp-mid);
+  max-width: 42ch;
+  margin-bottom: 1.75rem;
+}
+.success-msg strong {
+  color: var(--fp-text);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.success-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.success-note {
+  font-size: 0.8125rem;
+  color: var(--fp-muted);
+}
+.success-note[data-sent] { color: var(--fp-mid); }
+
+/* Footer */
+.form-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.foot-copy {
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  color: var(--fp-muted);
+  letter-spacing: 0.04em;
+}
+.form-foot nav {
+  display: flex;
+  gap: 1.25rem;
+}
+.form-foot nav a {
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  color: var(--fp-muted);
+  transition: color var(--dur-base) var(--ease-out);
+}
+.form-foot nav a:hover { color: var(--fp-mid); }
+
+/* ─── Visual panel ───────────────────────────────────────────── */
+.visual-panel {
+  padding: 1.25rem 1.25rem 1.25rem 0;
+  animation: sg-rise 0.6s var(--ease-out) 0.16s both;
+}
+
+.preview-frame {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background:
+    radial-gradient(120% 80% at 70% 0%, oklch(24% 0.020 64) 0%, oklch(18.5% 0.011 66) 55%, oklch(16.5% 0.009 66) 100%);
+  border: 1px solid oklch(30% 0.012 70);
+  padding: clamp(2.25rem, 3.5vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 0;
+}
+
+.preview-kicker {
+  flex-shrink: 0;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: oklch(58% 0.020 72);
+}
+
+/* ── Faux app window ── */
+.app-window {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: oklch(17.5% 0.009 68);
+  border: 1px solid oklch(29% 0.011 70);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px oklch(8% 0.01 60 / 0.4),
+    0 24px 56px oklch(8% 0.01 60 / 0.5);
+}
+
+.aw-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.7rem 1rem;
+  background: oklch(21% 0.010 68);
+  border-bottom: 1px solid oklch(28% 0.011 70);
+}
+.aw-dots { display: flex; gap: 6px; }
+.aw-dots span {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: oklch(34% 0.010 68);
+}
+.aw-dots span:first-child { background: oklch(60% 0.14 35); }
+.aw-url {
+  font-family: var(--f-mono);
+  font-size: 0.66rem;
+  color: oklch(60% 0.012 78);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Scrollable middle */
+.aw-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: oklch(34% 0.010 68) transparent;
+}
+.aw-scroll::-webkit-scrollbar { width: 8px; }
+.aw-scroll::-webkit-scrollbar-thumb {
+  background: oklch(32% 0.010 68);
+  border-radius: 100px;
+  border: 2px solid oklch(17.5% 0.009 68);
+}
+
+.aw-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.aw-title {
+  font-family: var(--f-body);
+  font-weight: 500;
+  font-size: 1rem;
+  color: oklch(93% 0.014 84);
+}
+.aw-sub {
+  font-family: var(--f-mono);
+  font-size: 0.66rem;
+  color: oklch(62% 0.012 78);
+  margin-top: 3px;
+}
+.aw-pill {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--f-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: oklch(82% 0.14 150);
+  background: oklch(34% 0.06 150 / 0.32);
+  border: 1px solid oklch(48% 0.08 150 / 0.5);
+  padding: 3px 9px 3px 7px;
+  border-radius: 100px;
+}
+.aw-pill::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: oklch(72% 0.17 150);
+}
+
+/* ── Sections ── */
+.aw-section { margin-bottom: 1.75rem; }
+.aw-section:last-child { margin-bottom: 0; }
+
+.aw-section-title {
+  font-family: var(--f-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: oklch(58% 0.011 76);
+  padding-bottom: 0.625rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid oklch(26% 0.010 70);
+}
+
+/* ── Relationship map ── */
+.aw-graph {
+  position: relative;
+  height: 210px;
+}
+.aw-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.aw-lines line {
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+.aw-lines .ln {
+  stroke: oklch(46% 0.014 72);
+}
+.aw-lines .ln-strong {
+  stroke: oklch(54% 0.11 60);
+  stroke-width: 2;
+}
+.aw-lines .ln-weak {
+  stroke: oklch(40% 0.012 72);
+  stroke-dasharray: 3 3;
+}
+
+/* Traveling signal pulse: a short amber dash glides along each tie,
+   desynced per line, mirroring the hero 3D graph's edge pulses. */
+.aw-lines .ln-pulse {
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 14 86;
+  filter: drop-shadow(0 0 2.5px oklch(72% 0.155 62 / 0.6));
+  animation: aw-ln-flow 3.4s linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+.aw-lines .ln-pulse--strong {
+  stroke-width: 2.6;
+  stroke-dasharray: 22 78;
+  filter: drop-shadow(0 0 3px oklch(75% 0.16 62 / 0.75));
+}
+
+@keyframes aw-ln-flow {
+  from { stroke-dashoffset: 100; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aw-lines .ln-pulse { display: none; }
+}
+
+.band-label {
+  position: absolute;
+  left: 0;
+  font-family: var(--f-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: oklch(58% 0.018 72);
+}
+.band-label--top { top: 0; }
+.band-label--bot { bottom: 0; }
+
+.node {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: oklch(82% 0.012 80);
+  background: oklch(24% 0.010 68);
+  border: 1.5px solid oklch(34% 0.011 70);
+}
+/* client stakeholder, highlighted (warm path target).
+   Opaque amber-tinted fill so the connector line is hidden beneath the node
+   and stops at the border instead of crossing the "CW" initials. */
+.node--warm {
+  color: var(--accent);
+  background: oklch(30% 0.07 62);
+  border-color: var(--accent);
+}
+/* your firm's people */
+.node--mine {
+  color: oklch(72% 0.011 78);
+  background: oklch(22% 0.009 68);
+  border-style: dashed;
+  border-color: oklch(36% 0.011 70);
+}
+
+.person {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 88px;
+}
+.person--rev { flex-direction: column-reverse; }
+.p-name {
+  font-size: 0.66rem;
+  font-weight: 500;
+  color: oklch(82% 0.012 80);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ── Key stakeholders ── */
+.stk-list { list-style: none; display: flex; flex-direction: column; }
+.stk-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.7rem;
+  border-bottom: 1px solid oklch(24% 0.009 70);
+}
+.stk-row:last-child { border-bottom: none; }
+
+.stk-id { display: flex; align-items: center; gap: 0.7rem; }
+.stk-av {
+  width: 32px; height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: oklch(80% 0.012 80);
+  background: oklch(24% 0.010 68);
+  border: 1px solid oklch(32% 0.011 70);
+}
+.stk-av--warm {
+  color: var(--accent);
+  background: oklch(40% 0.09 60 / 0.25);
+  border-color: oklch(50% 0.10 60 / 0.55);
+}
+.stk-name {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: oklch(92% 0.014 84);
+}
+.stk-role {
+  font-family: var(--f-mono);
+  font-size: 0.58rem;
+  color: var(--accent);
+  margin-top: 1px;
+}
+
+.stk-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-shrink: 0;
+}
+.bars { display: inline-flex; gap: 3px; align-items: flex-end; }
+.bars i {
+  width: 4px;
+  border-radius: 1px;
+  background: oklch(32% 0.010 68);
+}
+.bars i:nth-child(1) { height: 7px; }
+.bars i:nth-child(2) { height: 10px; }
+.bars i:nth-child(3) { height: 13px; }
+.bars[data-level="1"] i:nth-child(-n+1),
+.bars[data-level="2"] i:nth-child(-n+2),
+.bars[data-level="3"] i:nth-child(-n+3) {
+  background: var(--accent);
+}
+.stk-last {
+  font-family: var(--f-mono);
+  font-size: 0.58rem;
+  color: oklch(58% 0.011 76);
+  width: 42px;
+  text-align: right;
+}
+
+/* ── Recent activity ── */
+.act-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+.act-row { display: flex; gap: 0.7rem; align-items: flex-start; }
+.act-dot {
+  width: 8px; height: 8px;
+  flex-shrink: 0;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: oklch(28% 0.010 68);
+  border: 1.5px solid oklch(36% 0.011 70);
+}
+.act-dot--on {
+  background: oklch(40% 0.09 60 / 0.3);
+  border-color: var(--accent);
+}
+.act-event {
+  font-size: 0.74rem;
+  color: oklch(88% 0.013 82);
+  line-height: 1.4;
+}
+.act-when {
+  font-family: var(--f-mono);
+  font-size: 0.58rem;
+  color: oklch(58% 0.011 76);
+  margin-top: 2px;
+}
+
+/* ── Pinned status bar ── */
+.aw-foot {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem 1.25rem;
+  background: oklch(20% 0.010 68);
+  border-top: 1px solid oklch(28% 0.011 70);
+}
+.aw-tag {
+  flex-shrink: 0;
+  font-family: var(--f-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: oklch(40% 0.09 60 / 0.22);
+  border: 1px solid oklch(50% 0.10 60 / 0.45);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.aw-path {
+  font-family: var(--f-mono);
+  font-size: 0.66rem;
+  color: oklch(70% 0.012 78);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.preview-caption {
+  flex-shrink: 0;
+  font-family: var(--f-body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: oklch(70% 0.012 78);
+  max-width: 36ch;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .shell { grid-template-columns: 1fr; }
+  .visual-panel { display: none; }
+  .form-panel { padding: 2rem 1.5rem; }
+  .form-body { max-width: 440px; }
+}
+
+@media (max-width: 480px) {
+  .form-panel { padding: 1.5rem 1.25rem; }
+  .form-actions { flex-direction: column; align-items: stretch; }
+  .btn-create, .btn-secondary { width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-panel,
+  .visual-panel,
+  .signup-success { animation: none; }
+  /* The submit spinner is small, essential loading feedback; it keeps turning. */
+}
+
+</style>

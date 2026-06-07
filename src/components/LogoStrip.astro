@@ -1,0 +1,69 @@
+---
+const firms = [
+  'SURIA ADVISORY',
+  'PERDANA GROUP',
+  'AMPANG PARTNERS',
+  'MENARA & CO',
+  'KLANG CAPITAL',
+  'BANGSAR',
+];
+---
+<section class="logo-strip" aria-label="Trusted by">
+  <div class="wrap">
+    <p class="strip-label reveal">The firms on Meridian</p>
+    <ul class="firms" role="list">
+      {firms.map((name, i) => (
+        <li class="firm reveal" style={`--firm-i:${i}`}>{name}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+.logo-strip {
+  padding-block: var(--sp-12) var(--sp-10);
+  border-top: 1px solid var(--c-border);
+}
+
+.strip-label {
+  font-family: var(--f-body);
+  font-size: var(--t-small);
+  color: var(--c-text-muted);
+  text-align: center;
+  margin-bottom: var(--sp-8);
+}
+
+.firms {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-8) var(--sp-12);
+}
+
+.firm {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--c-text-muted);
+  transition: color var(--dur-base) var(--ease-out);
+  user-select: none;
+}
+.firm:hover { color: var(--c-text-mid); }
+
+/* Override global reveal: slide in from left instead of up (JS-gated) */
+.js .firm.reveal {
+  transform: translateX(-18px);
+  transition-delay: calc(var(--firm-i) * 70ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .firm.reveal { transform: none; transition-delay: 0ms; }
+}
+
+@media (max-width: 680px) {
+  .firms { gap: var(--sp-6) var(--sp-8); }
+}
+</style>

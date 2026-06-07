@@ -1,0 +1,182 @@
+---
+---
+<header class="nav-shell" role="banner">
+  <nav class="wrap nav-inner" aria-label="Main navigation">
+    <a href="/" class="wordmark" aria-label="Meridian home">
+      <span class="wordmark-dot" aria-hidden="true"></span>
+      MERIDIAN
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#product">Product</a></li>
+      <li><a href="#customers">Customers</a></li>
+    </ul>
+
+    <a href="/signup" class="nav-cta">Start for free</a>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <ul role="list">
+      <li><a href="#product">Product</a></li>
+      <li><a href="#customers">Customers</a></li>
+      <li><a href="/signup" class="mobile-cta">Start for free</a></li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle') as HTMLButtonElement;
+  const menu   = document.getElementById('mobile-menu') as HTMLElement;
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    menu.hidden = open;
+  });
+
+  const shell = document.querySelector('.nav-shell') as HTMLElement;
+  window.addEventListener('scroll', () => {
+    shell?.classList.toggle('scrolled', window.scrollY > 4);
+  }, { passive: true });
+</script>
+
+<style>
+.nav-shell {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--c-ground);
+  border-bottom: 1px solid var(--c-border);
+  transition: box-shadow var(--dur-base) var(--ease-out);
+}
+.nav-shell.scrolled {
+  box-shadow: 0 1px 16px oklch(20% 0.01 55 / 0.09);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-8);
+  height: 60px;
+}
+
+/* Wordmark */
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  color: var(--c-text);
+  flex-shrink: 0;
+}
+
+.wordmark-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  flex-shrink: 0;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: var(--sp-6);
+  margin-inline-start: auto;
+}
+
+.nav-links a {
+  font-size: var(--t-small);
+  color: var(--c-text-mid);
+  transition: color var(--dur-base) var(--ease-out);
+}
+.nav-links a:hover { color: var(--c-text); }
+.nav-links a:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* CTA */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.125rem;
+  background: var(--c-text);
+  color: var(--c-ground);
+  font-size: var(--t-small);
+  font-weight: 500;
+  border-radius: var(--r-sm);
+  transition:
+    background var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
+  flex-shrink: 0;
+}
+.nav-cta:hover { background: var(--c-accent); color: var(--c-on-accent); }
+.nav-cta:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+/* Toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-inline-start: auto;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--c-text);
+  border-radius: 2px;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  border-top: 1px solid var(--c-border);
+  padding: var(--sp-4) var(--sp-4) var(--sp-6);
+}
+.mobile-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.mobile-menu a {
+  display: block;
+  padding: 0.6rem 0;
+  font-size: 1.05rem;
+  color: var(--c-text-mid);
+  border-bottom: 1px solid var(--c-border);
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-cta {
+  color: var(--c-accent) !important;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-cta   { display: none; }
+  .nav-toggle { display: flex; }
+}
+</style>

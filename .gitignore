@@ -7,11 +7,15 @@ dist/
 node_modules/
 
 # logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# local dev / tooling notes (kept locally, excluded from the public repo)
+.impeccable/
+PROGRESS.md
 
 # environment variables
 .env

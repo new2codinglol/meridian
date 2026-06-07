@@ -1,0 +1,203 @@
+---
+import NetworkGraph3D from './NetworkGraph3D.tsx'
+---
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow reveal">CLIENT RELATIONSHIP MANAGEMENT</p>
+      <h1 id="hero-heading" class="hero-heading reveal reveal-d1">
+        The complete view<br />of every client<br />relationship.
+      </h1>
+      <p class="hero-sub reveal reveal-d2">
+        Your senior partners know who to call. New hires spend months learning
+        what they already know. Meridian gives every person on your team the
+        relationship intelligence that used to take years to earn.
+      </p>
+      <div class="hero-ctas reveal reveal-d3">
+        <a href="/signup" class="btn-primary">Start for free</a>
+        <a href="#product" class="btn-ghost">
+          See how it works
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal reveal-d2">
+      <div class="graph-canvas-wrap">
+        <NetworkGraph3D client:only="react" />
+      </div>
+      <span class="drag-hint" aria-hidden="true">drag to rotate · ctrl + scroll to zoom</span>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero {
+  padding-block: var(--sp-24) var(--sp-16);
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: var(--sp-16);
+  align-items: center;
+}
+
+/* Text column */
+.hero-text {
+  max-width: 580px;
+}
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: var(--t-label);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--c-accent);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-6);
+}
+
+.hero-heading {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: var(--t-display);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  color: var(--c-text);
+  margin-bottom: var(--sp-6);
+}
+
+.hero-sub {
+  font-size: 1.0625rem;
+  color: var(--c-text-mid);
+  max-width: 52ch;
+  line-height: 1.7;
+  margin-bottom: var(--sp-8);
+}
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  flex-wrap: wrap;
+}
+
+/* Primary button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.75rem;
+  background: var(--c-accent);
+  color: var(--c-on-accent);
+  font-family: var(--f-body);
+  font-weight: 500;
+  font-size: var(--t-small);
+  border-radius: var(--r-sm);
+  transition:
+    background var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+}
+.btn-primary:hover {
+  background: var(--c-accent-deep);
+  transform: translateY(-1px);
+}
+.btn-primary:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+/* Ghost button */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-small);
+  font-weight: 500;
+  color: var(--c-text-mid);
+  transition: color var(--dur-base) var(--ease-out);
+}
+.btn-ghost:hover { color: var(--c-text); }
+.btn-ghost:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Visual column */
+.hero-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  transform: translateX(2rem);
+}
+
+.graph-canvas-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 600px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at 50% 44%,
+    oklch(26% 0.022 62) 0%,
+    oklch(19.5% 0.010 66) 46%,
+    var(--c-ground) 75%
+  );
+  cursor: grab;
+}
+.graph-canvas-wrap:active {
+  cursor: grabbing;
+}
+
+.drag-hint {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  color: var(--c-text-muted);
+  letter-spacing: 0.06em;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out);
+  animation: fade-out-hint 0.7s ease-out 4s forwards;
+}
+
+/* Re-reveal the affordance when the graph is hovered, so the interaction
+   stays discoverable after the initial hint fades. */
+.graph-canvas-wrap:hover ~ .drag-hint {
+  animation: none;
+  opacity: 1;
+  color: var(--c-text-mid);
+}
+
+@keyframes fade-out-hint {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drag-hint { display: none; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-12);
+  }
+  .hero-visual { order: -1; transform: none; }
+  .graph-canvas-wrap { max-width: 340px; }
+  .hero { padding-block: var(--sp-16) var(--sp-12); }
+}
+
+@media (max-width: 480px) {
+  .hero-heading { line-height: 0.95; }
+  .hero-ctas { flex-direction: column; align-items: flex-start; }
+}
+</style>
