@@ -16,6 +16,7 @@ pnpm-debug.log*
 # local dev / tooling notes (kept locally, excluded from the public repo)
 .impeccable/
 PROGRESS.md
+CLAUDE.md
 
 # environment variables
 .env
